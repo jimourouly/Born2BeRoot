@@ -110,7 +110,8 @@ exit;
 
 `cd /var/www/html`
 
-`sudo wget https://wordpress.org/latest.tar.gz`\n
+`sudo wget https://wordpress.org/latest.tar.gz`
+
 `sudo tar -xzvf latest.tar.gz`
 `sudo chown -R www-data:www-data /var/www/html/wordpress`
 `sudo mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php`
