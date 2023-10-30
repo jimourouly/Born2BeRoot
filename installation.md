@@ -79,6 +79,58 @@ Ce document fournit des instructions détaillées étape par étape pour l'insta
 3. Téléchargez et configurez WordPress.
 4. Assurez-vous que le site est accessible et fonctionne correctement.
 
+### 1. Installer Lighttpd, MariaDB et PHP
+`bash
+sudo apt update
+sudo apt install lighttpd mariadb-server php php-cgi php-mysql
+`
+
+### 2. Activer PHP pour Lighttpd
+`bash
+sudo lighty-enable-mod fastcgi-php
+sudo systemctl restart lighttpd
+`
+
+### 3. Sécuriser MariaDB
+`bash
+sudo mysql_secure_installation
+`
+
+### 4. Configurer une Base de Données pour WordPress
+`bash
+sudo mysql -u root -p
+CREATE DATABASE wordpress;
+CREATE USER 'wordpressuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localhost';
+FLUSH PRIVILEGES;
+exit;
+`
+
+### 5. Télécharger et Configurer WordPress
+`bash
+cd /var/www/html
+sudo wget https://wordpress.org/latest.tar.gz
+sudo tar -xzvf latest.tar.gz
+sudo chown -R www-data:www-data /var/www/html/wordpress
+sudo mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
+sudo nano /var/www/html/wordpress/wp-config.php
+`
+Assurez-vous de configurer les paramètres de la base de données dans le fichier wp-config.php.
+
+### 6. Configurer Lighttpd pour WordPress
+`bash
+sudo lighty-enable-mod rewrite
+sudo systemctl restart lighttpd
+`
+
+## Vérification de la Configuration
+
+### 1. Vérifier la Configuration de Lighttpd
+`bash
+sudo systemctl status lighttpd
+`
+Assurez-vous que le service est actif et en cours d'exécution.
+
 ### Service Supplémentaire
 
 1. Choisissez un service supplémentaire à installer et à configurer.
