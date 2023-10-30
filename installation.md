@@ -107,17 +107,19 @@ exit;
 `
 
 ### 5. Télécharger et Configurer WordPress
+
 #### 1. Deplacement dans le dossier 
 `cd /var/www/html`
-Téléchargement de WordPress
+
+#### 2. Téléchargement de WordPress
 `sudo wget https://wordpress.org/latest.tar.gz`
-Extraction des Fichiers WordPress
+#### 3. Extraction des Fichiers WordPress
 `sudo tar -xzvf latest.tar.gz`
-Attribution des Permissions
+#### 4.Attribution des Permissions
 `sudo chown -R www-data:www-data /var/www/html/wordpress`
-Création du Fichier de Configuration WordPress
+#### 5.Création du Fichier de Configuration WordPress
 `sudo mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php`
-Édition du Fichier de Configuration WordPress
+#### 6. Édition du Fichier de Configuration WordPress
 `sudo vim /var/www/html/wordpress/wp-config.php`
 
 Assurez-vous de configurer les paramètres de la base de données dans le fichier wp-config.php.
