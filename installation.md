@@ -129,17 +129,18 @@ exit;
 Assurez-vous de configurer les paramètres de la base de données dans le fichier wp-config.php.
 
 ### 6. Configurer Lighttpd pour WordPress
-`bash
-sudo lighty-enable-mod rewrite
-sudo systemctl restart lighttpd
-`
+1. activation de la modification
+`sudo lighty-enable-mod rewrite`
+
+2. Restart du service
+`sudo systemctl restart lighttpd`
 
 ## Vérification de la Configuration
 
 ### 1. Vérifier la Configuration de Lighttpd
-`bash
-sudo systemctl status lighttpd
-`
+1. Verification si lighttpd est actif
+`sudo systemctl status lighttpd`
+
 Assurez-vous que le service est actif et en cours d'exécution.
 
 ### Service Supplémentaire
@@ -148,11 +149,18 @@ Assurez-vous que le service est actif et en cours d'exécution.
 
 ## Vérification de la Configuration
 
-1. Assurez-vous que toutes les configurations sont correctement mises en place.
-2. Testez la connexion SSH sur le port 4242.
+
+1. Testez la connexion SSH sur le port 4242.
+`ssh -p 4242 votre_utilisateur@votre_serveur`
+
 3. Vérifiez que le pare-feu est configuré correctement.
+`sudo ufw status`
+
 4. Assurez-vous que la politique de mot de passe est appliquée.
+`cat /etc/security/pwquality.conf`
+
 5. Vérifiez la configuration de sudo.
+`cat /etc/sudoers`
 
 ---
 
