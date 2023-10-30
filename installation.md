@@ -107,14 +107,14 @@ exit;
 `
 
 ### 5. Télécharger et Configurer WordPress
-`bash
-cd /var/www/html
-sudo wget https://wordpress.org/latest.tar.gz
-sudo tar -xzvf latest.tar.gz
-sudo chown -R www-data:www-data /var/www/html/wordpress
-sudo mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
-sudo nano /var/www/html/wordpress/wp-config.php
-`
+
+`cd /var/www/html`
+
+`sudo wget https://wordpress.org/latest.tar.gz`
+`sudo tar -xzvf latest.tar.gz`
+`sudo chown -R www-data:www-data /var/www/html/wordpress`
+`sudo mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php`
+`sudo nano /var/www/html/wordpress/wp-config.php`
 Assurez-vous de configurer les paramètres de la base de données dans le fichier wp-config.php.
 
 ### 6. Configurer Lighttpd pour WordPress
