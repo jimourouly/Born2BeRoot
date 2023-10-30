@@ -22,7 +22,6 @@ L'objectif est de vous familiariser avec la virtualisation et l'administration s
 ## Consignes Générales
 
 1. Utilisez VirtualBox (ou UTM si VirtualBox n'est pas compatible avec votre système).
- - `sudo apt install VirtualBox`
 2. Le rendu se fera sous forme d'un fichier `signature.txt`, contenant la signature du disque virtuel de votre machine. 
 
 ## Partie Obligatoire

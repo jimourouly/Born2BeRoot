@@ -17,12 +17,16 @@ Ce document fournit des instructions détaillées étape par étape pour l'insta
 ## Prérequis
 
 - Avoir installé VirtualBox ou UTM.
-- Télécharger l'image ISO de Debian ou Rocky.
+`sudo apt install VirtualBox`
+- Télécharger l'image ISO de Debian.
+https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
+
+
 
 ## Installation du Système d'Exploitation
 
 1. Créer une nouvelle machine virtuelle dans VirtualBox/UTM.
-2. Sélectionnez le type de système d'exploitation Linux et la version Debian/Red Hat selon votre choix de distribution.
+2. Sélectionnez le type de système d'exploitation Linux.
 3. Attribuez au moins 2 Go de RAM à la machine virtuelle.
 4. Créez un disque virtuel de taille suffisante (au moins 15 Go recommandé).
 5. Démarrez la machine virtuelle et sélectionnez l'image ISO téléchargée pour l'installation.
