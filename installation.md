@@ -107,7 +107,7 @@ exit;
 `
 
 ### 5. Télécharger et Configurer WordPress
-#### 1 Deplacement dans le dossier 
+#### 1. Deplacement dans le dossier 
 `cd /var/www/html`
 Téléchargement de WordPress
 `sudo wget https://wordpress.org/latest.tar.gz`
