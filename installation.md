@@ -113,12 +113,16 @@ exit;
 
 2. Téléchargement de WordPress
 `sudo wget https://wordpress.org/latest.tar.gz`
+
 3. Extraction des Fichiers WordPress
 `sudo tar -xzvf latest.tar.gz`
-4.Attribution des Permissions
+
+4. Attribution des Permissions
 `sudo chown -R www-data:www-data /var/www/html/wordpress`
-5.Création du Fichier de Configuration WordPress
+
+5. Création du Fichier de Configuration WordPress
 `sudo mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php`
+
 6. Édition du Fichier de Configuration WordPress
 `sudo vim /var/www/html/wordpress/wp-config.php`
 
