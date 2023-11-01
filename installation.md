@@ -43,6 +43,13 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 3. Nom de la machine: Mettez votre login suivi de 42 (ex: login42).
 4. Utilisateur: Créez un utilisateur avec votre login et ajoutez-le aux groupes `user42` et `sudo`.
 
+## Configuration de Sudo
+
+1. Installez sudo si ce n'est pas déjà fait : `apt install sudo`.
+2. Éditez le fichier de configuration sudo : `sudo visudo`.
+3. Ajoutez les configurations requises pour une utilisation stricte de sudo (voir les exigences du projet).
+
+
 ## Configuration SSH
 
 1. Installez le serveur SSH si ce n'est pas déjà fait : `sudo apt install openssh-server`.
@@ -83,18 +90,10 @@ Vous devriez voir la connexion qui a ete faite.
 4. indice : retry, minlen, ucredit, dcredit ... 
 <details>
 	<summary>regle a modifier</summary>
-
 1. Trouvez la ligne qui commence par `password requisite pam-pwquality.so`.
-
 2. Ajoutez a la suite `retry=3 minlen=10 ucredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`.
-
 </details>
 
-## Configuration de Sudo
-
-1. Installez sudo si ce n'est pas déjà fait : `sudo apt install sudo`.
-2. Éditez le fichier de configuration sudo : `sudo visudo`.
-3. Ajoutez les configurations requises pour une utilisation stricte de sudo (voir les exigences du projet).
 
 ## Partie Bonus (Optionnelle)
 
