@@ -98,6 +98,9 @@ Vous devriez voir la connexion qui a ete faite.
 
 </details>
 
+## Création Groupe 
+
+#TODO 
 
 ## Partie Bonus (Optionnelle)
 
