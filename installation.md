@@ -46,25 +46,26 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 ## Configuration SSH
 
 1. Installez le serveur SSH si ce n'est pas déjà fait : `sudo apt install openssh-server`.
-2. Éditez le fichier de configuration SSH : `sudo nano /etc/ssh/sshd_config`.
+2. Éditez le fichier de configuration SSH : `sudo vim /etc/ssh/sshd_config`.
+(Si Vim n'est pas installe utilisez nano)
 3. Changez le port par défaut en 4242 : `Port 4242`.
 4. Désactivez la connexion en tant que root : `PermitRootLogin no`.
 5. Redémarrez le service SSH : `sudo systemctl restart ssh`.
 
 ##Tester la configuration SSH
 
-1. Fermer la VM
-2. Allez dans les parametres de la VM sur VirtualBox
-3. Ouvrez les settings, Network, Adaptater 1
-4. Cliquez sur Advanced, puis Port Forwarding
-5. Cliquez sur le "+" vert. Laissez Rule 1, changez Host port et Guest port en "4242"
+1. Fermer la VM.
+2. Allez dans les parametres de la VM sur VirtualBox.
+3. Ouvrez les settings, Network, Adaptater 1.
+4. Cliquez sur Advanced, puis Port Forwarding.
+5. Cliquez sur le "+" vert. Laissez Rule 1, changez Host port et Guest port en "4242".
 6. Quittez les settings. 
-7. Redemarrez la vm
+7. Redemarrez la vm.
 
-8. Avec le teminal connectez vous en ssh en tapant `ssh lgaume@127.0.0.1 -p 4242`
-Changer lgaume par votre nom d'utilisateur
+8. Avec le teminal connectez vous en ssh en tapant `ssh lgaume@127.0.0.1 -p 4242`.
+Changer lgaume par votre nom d'utilisateur.
 
-9. Sur la vm, ecrivez `sudo service sshd status`
+9. Sur la vm, ecrivez `sudo service sshd status`.
 Vous devriez voir la connexion qui a ete faite. 
 
 ## Configuration du Pare-feu
