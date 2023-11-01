@@ -37,7 +37,6 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 1. Sélectionnez l'option d'installation sans interface graphique.
 2. Partitions:
    - Sélectionnez "Partitionnement manuel".
-   - Créez une partition primaire pour `/boot` (recommandé : 512 Mo).
    - Créez le reste des partitions en utilisant LVM et assurez-vous qu'elles sont chiffrées.
    - Assurez-vous de créer au moins une partition pour `/` et une pour `swap`.
 3. Nom de la machine: Mettez votre login suivi de 42 (ex: login42).
@@ -48,6 +47,9 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 1. Installez sudo si ce n'est pas déjà fait : `apt install sudo`.
 2. Éditez le fichier de configuration sudo : `sudo visudo`.
 3. Ajoutez les configurations requises pour une utilisation stricte de sudo (voir les exigences du projet).
+"Les paths utilisables par sudo seront restreints, là encore pour des questions de
+sécurité. Exemple :
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 
 
 ## Configuration SSH
