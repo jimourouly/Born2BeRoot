@@ -51,6 +51,22 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 4. Désactivez la connexion en tant que root : `PermitRootLogin no`.
 5. Redémarrez le service SSH : `sudo systemctl restart ssh`.
 
+##Tester la configuration SSH
+
+1. Fermer la VM
+2. Allez dans les parametres de la VM sur VirtualBox
+3. Ouvrez les settings, Network, Adaptater 1
+4. Cliquez sur Advanced, puis Port Forwarding
+5. Cliquez sur le "+" vert. Laissez Rule 1, changez Host port et Guest port en "4242"
+6. Quittez les settings. 
+7. Redemarrez la vm
+
+8. Avec le teminal connectez vous en ssh en tapant `ssh lgaume@127.0.0.1 -p 4242`
+Changer lgaume par votre nom d'utilisateur
+
+9. Sur la vm, ecrivez `sudo service sshd status`
+Vous devriez voir la connexion qui a ete faite. 
+
 ## Configuration du Pare-feu
 
 1. Installez UFW (ou firewalld pour Rocky) : `sudo apt install ufw` (ou `sudo dnf install firewalld` pour Rocky).
