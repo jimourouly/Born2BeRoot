@@ -83,8 +83,8 @@ Vous devriez voir la connexion qui a ete faite.
 4. indice : retry, minlen, ucredit, dcredit ... 
 <details>
 	<summary>regle a modifier</summary>
-	1. Trouvez la ligne qui commence par `password requisite pam-pwquality.so`
-	2. Ajoutez a la suite `retry=3 minlen=10 ucredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+1. Trouvez la ligne qui commence par `password requisite pam-pwquality.so`
+2. Ajoutez a la suite `retry=3 minlen=10 ucredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
 </details>
 
 ## Configuration de Sudo
