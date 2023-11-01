@@ -78,8 +78,14 @@ Vous devriez voir la connexion qui a ete faite.
 ## Politique de Mot de Passe
 
 1. Installez le package `libpam-pwquality` : `sudo apt install libpam-pwquality`.
-2. Éditez le fichier de configuration PAM : `sudo nano /etc/security/pwquality.conf`.
-3. Ajoutez vos règles pour la complexité du mot de passe (voir les exigences du projet).
+2. Éditez le fichier de configuration PAM : `sudo vim /etc/pam.d/common-password.
+3. Ajoutez vos règles pour la complexité du mot de passe (Voir https://linux.die.net/man/8/pam_pwquality).
+4. indice : retry, minlen, ucredit, dcredit ... 
+<details>
+	<summary>regle a modifier</summary>
+	1. Trouvez la ligne qui commence par `password requisite pam-pwquality.so`
+	2. Ajoutez a la suite `retry=3 minlen=10 ucredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+</details>
 
 ## Configuration de Sudo
 
