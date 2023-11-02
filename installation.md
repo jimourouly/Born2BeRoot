@@ -92,11 +92,12 @@ Voici les informations a mettre lors de la creation des comptes :
 3. Éditez le fichier de configuration sudo : `sudo visudo`.
 	### ⚠️ NOTE: pour la modification du fichier de configuration d'acces (/etc/sudoers) ne doit se faire UNIQUEMENT avec visudo
 4. Ajoutez les configurations requises pour une utilisation stricte de sudo 
-`"Les paths utilisables par sudo seront restreints, là encore pour des questions de
-sécurité. Exemple :
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"`
-5. Pour ajouter votre utilisateur dans le groupe sudo, tapez `usermod -aG sudo "votre_login"` 
-6. Pour permettre a votre compte d'utiliser toutes les fonction sudo, trouvez la ligne `#user privilege sepcifcation` et ajoutez `your_login ALL=(ALL) ALL`
+
+![PDF](https://github.com/jimourouly/Born2BeRoot/tree/main/Images/sudo.ora)
+
+
+6. Pour ajouter votre utilisateur dans le groupe sudo, tapez `usermod -aG sudo "votre_login"` 
+7. Pour permettre a votre compte d'utiliser toutes les fonction sudo, trouvez la ligne `#user privilege sepcifcation` et ajoutez `your_login ALL=(ALL) ALL`
 	- Apres avoir fait cette modification vous n'aurez plus besoin d'utilisez la commande `su` pour faire des manipulations en etant Super Utilisateur
 
 ## Installation Vim
