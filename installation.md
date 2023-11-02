@@ -93,7 +93,7 @@ Voici les informations a mettre lors de la creation des comptes :
 	### ⚠️ NOTE: pour la modification du fichier de configuration d'acces (/etc/sudoers) ne doit se faire UNIQUEMENT avec visudo
 4. Ajoutez les configurations requises pour une utilisation stricte de sudo 
 
-![PDF](https://github.com/jimourouly/Born2BeRoot/tree/main/Images/sudo.ora)
+![PDF](https://github.com/jimourouly/Born2BeRoot/tree/main/Images/sudo.jpg)
 
 
 6. Pour ajouter votre utilisateur dans le groupe sudo, tapez `usermod -aG sudo "votre_login"` 
