@@ -39,14 +39,14 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 2. Choisissez la langue voulue, (de preference `English`)
 3. La localisation.
 4. Keyboard Layout, le layout de votre machine.
-5. Pour les informations d'identification voir ci-dessous : [Informations identifications](#information-d'identifications)
+5. Pour les informations d'identification voir ci-dessous : [Informations identifications](#Information-identifications)
 6. Partitions Disks:
    - Sélectionnez `guided - Use entire ... encrypted LVM`.
    - Selectionner le disque `SCI3` (Disque entier)
    - Lors de la partition, utilisez `Separate /home, /var...`
    - Valider les changements sur le dique.
    - Creer un passphrase pour l'encriptage du disque.
-	   - [Informations identifications](#information-d'identifications)
+	   - [Informations identifications](#Information-identifications)
 	- Choisissez la taille max du disque en ecrivant `max`
 	- Confirmer `finish patritionning and write change to disk`
 7. Configure package manager :
@@ -74,7 +74,7 @@ Bravo Loris tu as reussi.
 		-y      : permet d'ignorer la confirmation d'installation
   
 
-## information d'identifications
+## Information identifications
 Voici les informations a mettre lors de la creation des comptes :
 
 	- Hostname = Login+42. Exemple "jroulet42"
