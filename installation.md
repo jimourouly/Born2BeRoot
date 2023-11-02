@@ -62,6 +62,17 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 L'OS va finaliser l'installation. 
 Bravo Loris tu as reussi. 
  
+ ## Ouverture VM
+ - Sur VirtualBox, cliquez sur `Play`
+ - Entrez votre passphrase
+ - utilisez votre login pour vous connecter
+ - Vous pouvez voir vos partitions en tapant `lsblk`
+ - Lorsque vous fait des installations, pensez a taper `apt-get update -y` et `apt-get upgrade -y`
+
+		update  : met a jour la liste des paquets disponible 
+		upgrade : met a jour les paquets installes
+		-y      : permet d'ignorer la confirmation d'installation
+  
 
 ## information d'identifications
 Voici les informations a mettre lors de la creation des comptes :
@@ -69,18 +80,27 @@ Voici les informations a mettre lors de la creation des comptes :
 	- Hostname = Login+42. Exemple "jroulet42"
 	- Username full name = "jroulet_full"
 	- Login = login 42. Exemple "jroulet"
-	 - Pensez a mettre un mot de passe identique pour le root, le login et le passphrase. 
+	- Pensez a mettre un mot de passe identique pour le root, le login et le passphrase. 
+	
 
 
-## Configuration de Sudo
+## Installation et configuration de Sudo
 
-1. Installez sudo si ce n'est pas déjà fait : `apt install sudo`.
-2. Éditez le fichier de configuration sudo : `sudo visudo`.
-3. Ajoutez les configurations requises pour une utilisation stricte de sudo (voir les exigences du projet).
+1. Pour changer d'utilisateur, tapez la commande `su` (switch utilisateur)
+	- Sans parametre, le system va passer sur le compte root (superutilisateur)  
+2. Installez sudo en etant connecte avec le compte Super Utilisateur : `apt install sudo`.
+3. Éditez le fichier de configuration sudo : `sudo visudo`.
+	### ⚠️ NOTE: pour la modification du fichier de configuration d'acces (/etc/sudoers) ne doit se faire UNIQUEMENT avec visudo
+4. Ajoutez les configurations requises pour une utilisation stricte de sudo 
 `"Les paths utilisables par sudo seront restreints, là encore pour des questions de
 sécurité. Exemple :
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"`
+5. Pour ajouter votre utilisateur dans le groupe sudo, tapez `usermod -aG sudo "votre_login"` 
+6. Pour permettre a votre compte d'utiliser toutes les fonction sudo, trouvez la ligne `#user privilege sepcifcation` et ajoutez `your_login ALL=(ALL) ALL`
+	- Apres avoir fait cette modification vous n'aurez plus besoin d'utilisez la commande `su` pour faire des manipulations en etant Super Utilisateur
 
+## Installation Vim
+1. Tapez `apt-get install vim -y`
 
 
 ## Configuration SSH
@@ -89,12 +109,13 @@ sécurité. Exemple :
 2. Éditez le fichier de configuration SSH : `sudo vim /etc/ssh/sshd_config`.
 (Si Vim n'est pas installe utilisez nano)
 3. Changez le port par défaut en 4242 : `Port 4242`.
-4. Désactivez la connexion en tant que root : `PermitRootLogin no`.
+4. Désactivez la connexion en tant que root : `PermitRootLogin no`. (Non demande sur le PDF, mais plus secure)
 5. Redémarrez le service SSH : `sudo systemctl restart ssh`.
 
 ##Tester la configuration SSH
 
-1. Fermer la VM.
+1. Eteignez la VM.
+	- ` sudo systemctl poweroff 
 2. Allez dans les parametres de la VM sur VirtualBox.
 3. Ouvrez les settings, Network, Adaptater 1.
 4. Cliquez sur Advanced, puis Port Forwarding.
