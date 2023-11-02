@@ -65,6 +65,7 @@ Bravo Loris tu as reussi.
 
 ## information d'identifications
 Voici les informations a mettre lors de la creation des comptes :
+
 	- Hostname = Login+42. Exemple "jroulet42"
 	- Username full name = "jroulet_full"
 	- Login = login 42. Exemple "jroulet"
