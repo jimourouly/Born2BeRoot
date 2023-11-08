@@ -111,7 +111,7 @@ Voici les informations a mettre lors de la creation des comptes :
 2. Éditez le fichier de configuration SSH : `sudo vim /etc/ssh/sshd_config`.
 (Si Vim n'est pas installe utilisez nano)
 3. Changez le port par défaut en 4242 : `Port 4242`.
-4. Désactivez la connexion en tant que root : `PermitRootLogin no`. (Non demande sur le PDF, mais plus secure)
+4. Désactivez la connexion en tant que root : `PermitRootLogin no`. 
 5. Redémarrez le service SSH : `sudo systemctl restart ssh`.
 
 ##Tester la configuration SSH
