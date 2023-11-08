@@ -1,4 +1,5 @@
 
+
 # Guide d'Installation pour Born2beRoot
 
 Ce document fournit des instructions détaillées étape par étape pour l'installation et la configuration de votre serveur dans le cadre du projet Born2beRoot.
@@ -152,9 +153,22 @@ Vous devriez voir la connexion qui a ete faite.
 
 </details>
 
-## Création Groupe 
+## Gestion utilisateur
 
-#TODO 
+### Création Utilisateur 
+1. Sudo adduser `new_user`
+	- un mot de passe sera demandé
+	
+### Création Groupe 
+1. sudo groupadd `groupname`
+	 - Pour ajouter un utilisateur au groupe : `sudo usermod -aG groupname username`
+
+### Contrôle de sécurité 
+1.  pour checker la date d'éxpiration du mot de passe `sudo chage -l username`
+2. Pour contrôler l'assignation a un groupe `getent group groupname`
+3. Controle le nom de domaine `hostnamectl`
+
+
 
 ## Partie Bonus (Optionnelle)
 
