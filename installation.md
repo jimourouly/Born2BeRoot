@@ -163,14 +163,23 @@ Vous devriez voir la connexion qui a ete faite.
 1. sudo groupadd `groupname`
 	 - Pour ajouter un utilisateur au groupe : `sudo usermod -aG groupname username`
 
-### Contrôle de sécurité 
+# Contrôle pour l'evaluation 
 1.  pour checker la date d'éxpiration du mot de passe `sudo chage -l username`
 2. Pour contrôler l'assignation a un groupe `getent group groupname`
 3. Controle le nom de domaine `hostnamectl`
-
+4. Modifier le nom d'hôte `hostnamectl set-hostname new_hostname`
+5. Voir les partitions `lsblk`
+6. checker si le sudo est bien installé `dpkg -l | grep sudo -`
+7. Checker si le Par-feu est bien installé `dpkg -l | grep ufw -`
+8. Checker si le ssh est installé `dpkg -l | grep ssh -`
+9. Verifier si le par-feu a les bonnes règles `sudo ufw status numbered`
+10. Verifier le fichiers de logs Sudo `cd /var/log/sudo/`
 
 
 ## Partie Bonus (Optionnelle)
+
+<details>
+	<summary>Partie Bonus</summary>
 
 ### Partitions Supplémentaires
 
@@ -248,6 +257,7 @@ Assurez-vous que le service est actif et en cours d'exécution.
 ### Service Supplémentaire
 
 1. Choisissez un service supplémentaire à installer et à configurer.
+</details>
 
 ## Vérification de la Configuration
 
