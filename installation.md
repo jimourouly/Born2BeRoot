@@ -1,5 +1,6 @@
 
 
+
 # Guide d'Installation pour Born2beRoot
 
 Ce document fournit des instructions détaillées étape par étape pour l'installation et la configuration de votre serveur dans le cadre du projet Born2beRoot.
@@ -141,10 +142,10 @@ Vous devriez voir la connexion qui a ete faite.
 
 ## Politique de Mot de Passe
 
-1. Installez le package `libpam-pwquality` : `sudo apt install libpam-pwquality`.
-2. Éditez le fichier de configuration PAM : `sudo vim /etc/pam.d/common-password.
-3. Ajoutez vos règles pour la complexité du mot de passe (Voir https://linux.die.net/man/8/pam_pwquality).
-4. indice : retry, minlen, ucredit, dcredit ... 
+
+1. Éditez le fichier de configuration PAM : `sudo vim /etc/pam.d/common-password.
+2. Ajoutez vos règles pour la complexité du mot de passe (Voir https://linux.die.net/man/8/pam_pwquality).
+3. indice : retry, minlen, ucredit, dcredit ... 
 <details>
 	<summary>Regle a modifier Spoiler</summary>
 
@@ -169,9 +170,9 @@ Vous devriez voir la connexion qui a ete faite.
 3. Controle le nom de domaine `hostnamectl`
 4. Modifier le nom d'hôte `hostnamectl set-hostname new_hostname`
 5. Voir les partitions `lsblk`
-6. checker si le sudo est bien installé `dpkg -l | grep sudo -`
-7. Checker si le Par-feu est bien installé `dpkg -l | grep ufw -`
-8. Checker si le ssh est installé `dpkg -l | grep ssh -`
+6. checker si le sudo est bien installé `dpkg -s | grep sudo -`
+7. Checker si le Par-feu est bien installé `dpkg -s | grep ufw -`
+8. Checker si le ssh est installé `dpkg -s | grep ssh -`
 9. Verifier si le par-feu a les bonnes règles `sudo ufw status numbered`
 10. Verifier le fichiers de logs Sudo `cd /var/log/sudo/`
 
