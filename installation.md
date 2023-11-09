@@ -39,7 +39,7 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 ## Installation OS Debian
 
 1. Sélectionnez l'option d'installation sans interface graphique. `install`
-2. Choisissez la langue voulue
+2. Choisissez la langue voulue, (de preference `English`)
 3. La localisation.
 4. Keyboard Layout, le layout de votre machine.
 5. Pour les informations d'identification voir ci-dessous : [Informations identifications](#Information-identifications)
@@ -136,7 +136,7 @@ Vous devriez voir la connexion qui a ete faite.
 
 ## Configuration du Pare-feu
 
-1. Installez UFW (ou firewalld pour Rocky) : `sudo apt install ufw` (ou `sudo dnf install firewalld` pour Rocky).
+1. Installez UFW (ou firewalld pour Rocky) : `sudo apt install ufw`
 2. Activez UFW : `sudo ufw enable`.
 3. Autorisez le port 4242 : `sudo ufw allow 4242/tcp`.
 4. Vérifiez la configuration : `sudo ufw status`.
@@ -144,14 +144,19 @@ Vous devriez voir la connexion qui a ete faite.
 ## Politique de Mot de Passe
 
 
-1. Éditez le fichier de configuration PAM : `sudo vim /etc/pam.d/common-password.
+1. Éditez le fichier de configuration PAM : `sudo vim /etc/pam.d/common-password.`
 2. Ajoutez vos règles pour la complexité du mot de passe (Voir https://linux.die.net/man/8/pam_pwquality).
 3. indice : retry, minlen, ucredit, dcredit ... 
 <details>
 	<summary>Regle a modifier Spoiler</summary>
 
-1. Trouvez la ligne qui commence par `password requisite pam-pwquality.so`.
-2. Ajoutez a la suite `retry=3 minlen=10 ucredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`.
+4. Trouvez la ligne qui commence par `password requisite pam-pwquality.so`.
+5. Ajoutez a la suite `retry=3 minlen=10 ucredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`.
+6. Modifiez le fichier `/etc/login.defs` pour ajouter les lignes ci-dessous : 
+	- MAX_PASS_DAYS 30
+	- MIN_PASS_DAYS 2
+	- PASS_WARN_AGE 7
+
 
 </details>
 
