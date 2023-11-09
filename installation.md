@@ -1,6 +1,7 @@
 
 
 
+
 # Guide d'Installation pour Born2beRoot
 
 Ce document fournit des instructions détaillées étape par étape pour l'installation et la configuration de votre serveur dans le cadre du projet Born2beRoot.
@@ -38,7 +39,7 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 ## Installation OS Debian
 
 1. Sélectionnez l'option d'installation sans interface graphique. `install`
-2. Choisissez la langue voulue, (de preference `English`)
+2. Choisissez la langue voulue
 3. La localisation.
 4. Keyboard Layout, le layout de votre machine.
 5. Pour les informations d'identification voir ci-dessous : [Informations identifications](#Information-identifications)
@@ -119,7 +120,7 @@ Voici les informations a mettre lors de la creation des comptes :
 ## Tester la configuration SSH
 
 1. Eteignez la VM.
-	- `sudo systemctl poweroff 
+	- `sudo systemctl poweroff`
 2. Allez dans les parametres de la VM sur VirtualBox.
 3. Ouvrez les settings, Network, Adaptater 1.
 4. Cliquez sur Advanced, puis Port Forwarding.
