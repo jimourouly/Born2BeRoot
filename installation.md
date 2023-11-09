@@ -152,7 +152,7 @@ Vous devriez voir la connexion qui a ete faite.
 
 4. Trouvez la ligne qui commence par `password requisite pam-pwquality.so`.
 5. Ajoutez a la suite `retry=3 minlen=10 ucredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`.
-6. Modifiez le fichier `/etc/login.defs` pour ajouter les lignes ci-dessous : 
+6. Modifiez le fichier `/etc/login.defs` pour modifier les lignes ci-dessous : 
 	- MAX_PASS_DAYS 30
 	- MIN_PASS_DAYS 2
 	- PASS_WARN_AGE 7
