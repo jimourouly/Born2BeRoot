@@ -116,10 +116,10 @@ Voici les informations a mettre lors de la creation des comptes :
 4. Désactivez la connexion en tant que root : `PermitRootLogin no`. 
 5. Redémarrez le service SSH : `sudo systemctl restart ssh`.
 
-##Tester la configuration SSH
+## Tester la configuration SSH
 
 1. Eteignez la VM.
-	- ` sudo systemctl poweroff 
+	- `sudo systemctl poweroff 
 2. Allez dans les parametres de la VM sur VirtualBox.
 3. Ouvrez les settings, Network, Adaptater 1.
 4. Cliquez sur Advanced, puis Port Forwarding.
