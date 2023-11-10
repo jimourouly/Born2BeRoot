@@ -180,7 +180,8 @@ Vous devriez voir la connexion qui a ete faite.
 <details>
 	<summary>Script</summary>
 
-`#!/bin/bash
+```
+#!/bin/bash
 arc=$(uname -a)
 pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l) 
 vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)
@@ -209,7 +210,8 @@ wall "	#Architecture: $arc
 	#Connections TCP: $ctcp ESTABLISHED
 	#User log: $ulog
 	#Network: IP $ip ($mac)
-	#Sudo: $cmds cmd" `
+	#Sudo: $cmds cmd"
+```
 
 
 </details>
