@@ -281,7 +281,7 @@ g pa fé
 `sudo ufw status`
 
 4. Assurez-vous que la politique de mot de passe est appliquée.
-`cat /etc/security/pwquality.conf`
+`cat /etc/pam.d/common-password`
 
 5. Vérifiez la configuration de sudo.
 `cat /etc/sudoers`
