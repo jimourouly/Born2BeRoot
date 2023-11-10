@@ -264,7 +264,7 @@ wall "	#Architecture: $arc
 <details>
 	<summary>Partie Bonus</summary>
 
-g pas fé
+g pa fé
 </details>
 
 ## Vérification de la Configuration
