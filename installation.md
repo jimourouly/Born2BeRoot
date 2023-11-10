@@ -240,8 +240,8 @@ wall "	#Architecture: $arc
 8. Ouvrir Crontab `sudo crontab -u root -e`
 9. A la fin du fichier ajouter la règle d'éxecution de chaque 10 minutes : 
 	- Voir https://crontab.guru/ pour savoir quoi mettre
-	- 
-	  <details>
+	
+<details>
 	<summary>Règle Crontab</summary>
 	https://crontab.guru/every-10-minutes
 </details>
