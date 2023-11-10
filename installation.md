@@ -166,17 +166,35 @@ Vous devriez voir la connexion qui a ete faite.
 ### Création Utilisateur 
 1. Sudo adduser `new_user`
 	- un mot de passe sera demandé
+2. Pour avoir la liste des utilisateurs `cut -d: -f1 /etc/passwd`
 	
 ### Création Groupe 
 1. sudo groupadd `groupname`
 	 - Pour ajouter un utilisateur au groupe : `sudo usermod -aG groupname username`
+2. Pour savoir si un groupe a été créer, tapez `getent group`
+
+### Création des Logs 
+1. Créer le dossier `/var/log/sudo`
+2. Créer un fichier `sudo.log` dans le dossier
+3. Modifier le visudo `sudo visudo` et ajouter :
+ ```
+ Defaults	env_reset
+Defaults	mail_badpass
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin"
+Defaults	badpass_message="Password is wrong, please try again!"
+Defaults	passwd_tries=3
+Defaults	logfile="/var/log/sudo.log"
+Defaults	log_input, log_output
+Defaults	requiretty
+```
 
 # Monitoring configuration
 1. Installation de Crontab (planificateur de tâches pour l'éxecution du script de monitoring)
 - `apt-get install -y net-tools` 
 2. Rendez vous sur le dossier `/usr/local/bin`
 3. Créer le fichier monitoring.sh
-4. Ajoutez-y le script :
+4. Modifier les accès du dossier `chmod 777 monitoring.sh`
+5. Ajoutez-y le script :
 <details>
 	<summary>Script</summary>
 
@@ -214,6 +232,18 @@ wall "	#Architecture: $arc
 ```
 
 
+</details>
+
+5. Pour permettre l'execution du script, ajouter la ligne ci-dessous.  `sudo visudo` et ajouter la ligne `your_username ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh` en dessous de la ligne `sudo ALL=ALL...`
+6. Redémarrez votre VM `sudo reboot`
+7. Lancer votre script avec `sudo /usr/local/bin/monitoring.sh`
+8. Ouvrir Crontab `sudo crontab -u root -e`
+9. A la fin du fichier ajouter la règle d'éxecution de chaque 10 minutes : 
+	- Voir https://crontab.guru/ pour savoir quoi mettre
+	- 
+	  <details>
+	<summary>Règle Crontab</summary>
+	https://crontab.guru/every-10-minutes
 </details>
 
 # Contrôle pour l'evaluation 
