@@ -258,7 +258,11 @@ wall "	#Architecture: $arc
 9. Verifier si le par-feu a les bonnes règles `sudo ufw status numbered`
 10. Verifier le fichiers de logs Sudo `cd /var/log/sudo/`
 
-
+# Signature 
+1. Se rendre dans le dossier ou se trouve la VM. 
+2. Tapez dans le terminal `shasum your_vm.vdi`
+3. Copier la suite de numéro dans un fichier `signature.txt`. Pusher le fichier sur votre Git. 
+4. Attention, il est possible que la signature change d'une evaluation a l'autre. Faites un snapshot de votre VM lorsque celle-ci est éteinte. Au cas ou la signature diffère, revenez sur le snapshot d'avant la première évaluation.
 ## Partie Bonus (Optionnelle)
 
 <details>
