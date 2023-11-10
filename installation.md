@@ -180,8 +180,8 @@ Vous devriez voir la connexion qui a ete faite.
  ```
  Defaults	env_reset
 Defaults	mail_badpass
-Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin"
-Defaults	badpass_message="Password is wrong, please try again!"
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+Defaults	badpass_message="Mauvais mot de passe, reessaye!"
 Defaults	passwd_tries=3
 Defaults	logfile="/var/log/sudo.log"
 Defaults	log_input, log_output
