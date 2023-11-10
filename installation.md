@@ -2,6 +2,7 @@
 
 
 
+
 # Guide d'Installation pour Born2beRoot
 
 Ce document fournit des instructions détaillées étape par étape pour l'installation et la configuration de votre serveur dans le cadre du projet Born2beRoot.
@@ -80,7 +81,7 @@ Bravo Loris tu as reussi.
 ## Information identifications
 Voici les informations a mettre lors de la creation des comptes :
 
-	- Hostname = Login+42. Exemple "jroulet42"
+	- Hostname = Login+42. Exemple "jroulet42"a
 	- Username full name = "jroulet_full"
 	- Login = login 42. Exemple "jroulet"
 	- Pensez a mettre un mot de passe identique pour le root, le login et le passphrase. 
@@ -101,7 +102,7 @@ Voici les informations a mettre lors de la creation des comptes :
 
 
 6. Pour ajouter votre utilisateur dans le groupe sudo, tapez `usermod -aG sudo "votre_login"` 
-7. Pour permettre a votre compte d'utiliser toutes les fonction sudo, trouvez la ligne `#user privilege sepcifcation` et ajoutez `your_login ALL=(ALL) ALL`
+7. Pour permettre a votre compte d'utiliser toutes les fonction sudo, trouvez la ligne `#user privilege sepcifcation` et ajoutez `your_login ALL=(ALL:ALL) ALL`
 	- Apres avoir fait cette modification vous n'aurez plus besoin d'utilisez la commande `su` pour faire des manipulations en etant Super Utilisateur
 
 ## Installation Vim
@@ -169,6 +170,49 @@ Vous devriez voir la connexion qui a ete faite.
 ### Création Groupe 
 1. sudo groupadd `groupname`
 	 - Pour ajouter un utilisateur au groupe : `sudo usermod -aG groupname username`
+
+# Monitoring configuration
+1. Installation de Crontab (planificateur de tâches pour l'éxecution du script de monitoring)
+- `apt-get install -y net-tools` 
+2. Rendez vous sur le dossier `/usr/local/bin`
+3. Créer le fichier monitoring.sh
+4. Ajoutez-y le script :
+<details>
+	<summary>Script</summary>
+
+`#!/bin/bash
+arc=$(uname -a)
+pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l) 
+vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)
+fram=$(free -m | awk '$1 == "Mem:" {print $2}')
+uram=$(free -m | awk '$1 == "Mem:" {print $3}')
+pram=$(free | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
+fdisk=$(df -BG | grep '^/dev/' | grep -v '/boot$' | awk '{ft += $2} END {print ft}')
+udisk=$(df -BM | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} END {print ut}')
+pdisk=$(df -BM | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} {ft+= $2} END {printf("%d"), ut/ft*100}')
+cpul=$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 + $3}')
+lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
+lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
+ctcp=$(ss -neopt state established | wc -l)
+ulog=$(users | wc -w)
+ip=$(hostname -I)
+mac=$(ip link show | grep "ether" | awk '{print $2}')
+cmds=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
+wall "	#Architecture: $arc
+	#CPU physical: $pcpu
+	#vCPU: $vcpu
+	#Memory Usage: $uram/${fram}MB ($pram%)
+	#Disk Usage: $udisk/${fdisk}Gb ($pdisk%)
+	#CPU load: $cpul
+	#Last boot: $lb
+	#LVM use: $lvmu
+	#Connections TCP: $ctcp ESTABLISHED
+	#User log: $ulog
+	#Network: IP $ip ($mac)
+	#Sudo: $cmds cmd" `
+
+
+</details>
 
 # Contrôle pour l'evaluation 
 1.  pour checker la date d'éxpiration du mot de passe `sudo chage -l username`
@@ -270,7 +314,7 @@ Assurez-vous que le service est actif et en cours d'exécution.
 
 
 1. Testez la connexion SSH sur le port 4242.
-`ssh -p 4242 votre_utilisateur@votre_serveur`
+`ssh -p 4242 votre_utilisateur@1270.0.1 -p 4242`
 
 3. Vérifiez que le pare-feu est configuré correctement.
 `sudo ufw status`
@@ -286,3 +330,4 @@ Assurez-vous que le service est actif et en cours d'exécution.
 Une fois que tout est configuré, vous pouvez revenir au [README.md](README.md) pour les étapes finales et les instructions pour le rendu.
 
 
+=
